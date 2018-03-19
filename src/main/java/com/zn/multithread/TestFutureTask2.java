@@ -22,6 +22,7 @@ public class TestFutureTask2 {
             return connectionFutureTask.get();
         } else {
             Callable<Connection> callable = new Callable<Connection>() {
+                @Override
                 public Connection call() throws Exception {
                     return createConnection();
                 }
@@ -35,6 +36,7 @@ public class TestFutureTask2 {
             return connectionFutureTask.get();
         }
     }
+
     private Connection createConnection() {
         return null;
     }
