@@ -17,17 +17,19 @@ public class TestSemaphore {
     public static void main(String[] args) {
         for (int i = 0; i < THREAD_COUNT; i++) {
             final int num = i;
-            threadPool.execute(new Runnable() {
-                @Override
-                public void run() {
-                    try {
-                        s.acquire();
-                        System.out.println(Thread.currentThread().getName() + "--save data--" + num);
-                        s.release();
-                    } catch (InterruptedException e) {
+            threadPool.execute(() -> {
+                        try {
+                            s.acquire();
+                            System.out.println(Thread.currentThread().getName() + "--save data--" + num);
+                            s.release();
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
+
+                        }
+
                     }
-                }
-            });
+            );
+
         }
 
         threadPool.shutdown();
