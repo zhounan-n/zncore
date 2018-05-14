@@ -9,6 +9,42 @@ import java.util.stream.Collectors;
  **/
 public class NewFeturesTest5 {
 
+
+    /**
+     * 流的转换：
+     *      初始化一个流：Strean stream=Stream.of("a","b","c");
+     *      数组转换为流：String[] strArray=new String[]{"a","b","c"}  stream=Streams.of(strArray); || stream=Arrays.stream(strArray)
+     *      集合转换为流：List<String> list = Arrays.asList(strArray)  list.stream()
+     *
+     * 流的操作：
+     *      遍历map:使用map操作可以遍历集合中的每个对象，并对其操作，map之后，用.collect(Collectors.toList())会得到操作后的集合
+     *          遍历转换大小写：List<String> output = wordList.stream().map(String::toUpperCase).collect(Collectors.toList());
+     *          平方数：List<Integer> nums = Arraylist.asList(1,2,3,4)
+     *                  List<Integer> squareNums = nums.stream.map(n -> n*n).collect(Collectors.toList());
+     *      过滤操作：使用filter对象可以对stream进行过滤，通过测试的元素将会留下生成一个新的stream
+     *          得到其中不为空的string
+     *              List afterFilterLists = filterLists.stream().filter(s -> !s.isEmpty()).collect(Collectors.toList());
+     *      循环操作foreach
+     *          如果只是想对流中的每个对象进行一些自定义的操作，可以使用foreach
+     *          forEachLists.stream().forEach(s-> System.out.println(s));
+     *      返回特定的结果集合（limit 返回 Stream 的前面 n 个元素；skip 则是扔掉前 n 个元素:）：
+     *          forEachLists.stream().skip(2).limit(3).collect(Collectors.toList());
+     *      排序（sort/min/max/distinct）：
+     *          sort可以对集合中的所有元素进行排序。max，min可以寻找出流中最大或者最小的元素，而distinct可以寻找出不重复的元素：
+     *          对一个集合进行排序：sortLists.stream().sorted((In1,In2)->In1-In2).collect(Collectors.toList());
+     *          得到长度最大的元素：int maxLength = maxLists.stream().mapToInt(s->s.length()).max().getAsInt();
+     *          对集合进行查重：distinctList.stream().distinct().collect(Collectors.toList());
+     *      匹配 match：
+     *          allMatch：Stream 中全部元素符合传入的 predicate，返回 true
+     *          anyMatch：Stream 中只要有一个元素符合传入的 predicate，返回 true
+     *          noneMatch：Stream 中没有一个元素符合传入的 predicate，返回 true
+     *          判断集合中有没有为'c'的元素 ：matchList.stream().anyMatch(s -> s.equals("c"));
+     *          判断集合中是否全不为空：boolean isNotEmpty = matchList.stream().noneMatch(s -> s.isEmpty());
+     *
+     * @param args
+     */
+
+
     public static void main(String[] args) {
         System.out.println("USING JAVA 7: ");
         //统计空字符串的数量

@@ -27,8 +27,8 @@ public class NewFeturesTest4 {
     public Integer sum(Optional<Integer> a, Optional<Integer> b) {
         //isPresent用于检查值是否存在
 
-        System.out.println("first parameter is present" + a.isPresent());
-        System.out.println("second parameter is present" + b.isPresent());
+        System.out.println("first parameter is present " + a.isPresent());
+        System.out.println("second parameter is present " + b.isPresent());
 
         //如果当前返回的是传入的默认值,orElse将返回它
         Integer value1 = a.orElse(new Integer(0));
