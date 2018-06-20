@@ -1,4 +1,4 @@
-package com.zn.designpattern.statepattern;
+package com.zn.designpattern.behavior.statepattern;
 
 /**
  * 具体状态类

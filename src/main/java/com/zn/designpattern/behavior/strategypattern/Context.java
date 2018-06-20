@@ -1,4 +1,4 @@
-package com.zn.designpattern.strategypattern;
+package com.zn.designpattern.behavior.strategypattern;
 
 /**
  * Created by zhoun on 2018/6/19.

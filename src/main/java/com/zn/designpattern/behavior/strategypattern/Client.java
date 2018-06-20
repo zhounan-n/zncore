@@ -1,4 +1,4 @@
-package com.zn.designpattern.strategypattern;
+package com.zn.designpattern.behavior.strategypattern;
 
 /**
  * 策略模式：
