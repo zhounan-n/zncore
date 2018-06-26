@@ -1,6 +1,5 @@
 # zncore
 知识点累积记录
-# multi-thread project
 
 under multithread package
 多线程，高并发知识点积累
