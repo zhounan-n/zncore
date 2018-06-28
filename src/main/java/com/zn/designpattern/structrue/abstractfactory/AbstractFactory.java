@@ -1,4 +1,4 @@
-package com.zn.designpattern.structrue.AbstractFactory;
+package com.zn.designpattern.structrue.abstractfactory;
 
 public interface AbstractFactory {
 
