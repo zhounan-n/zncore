@@ -1,4 +1,4 @@
-package com.zn.designpattern.structrue.abstractfactory;
+package com.zn.designpattern.creation.abstractfactory;
 
 /**
  * 抽象工厂模式是对象的创建模式

@@ -1,4 +1,4 @@
-package com.zn.designpattern.structrue.abstractfactory;
+package com.zn.designpattern.creation.abstractfactory;
 
 /**
  * Created by zhoun on 2018/6/28.

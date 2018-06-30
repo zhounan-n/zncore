@@ -1,4 +1,4 @@
-package com.zn.designpattern.structrue.prototype;
+package com.zn.designpattern.creation.prototype;
 
 /**
  * Created by zhoun on 2018/6/28.

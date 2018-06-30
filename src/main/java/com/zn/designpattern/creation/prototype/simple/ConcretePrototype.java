@@ -1,4 +1,4 @@
-package com.zn.designpattern.structrue.prototype.simple;
+package com.zn.designpattern.creation.prototype.simple;
 
 /**
  * 具体原型角色

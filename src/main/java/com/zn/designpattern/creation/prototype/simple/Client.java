@@ -1,4 +1,4 @@
-package com.zn.designpattern.structrue.prototype.simple;
+package com.zn.designpattern.creation.prototype.simple;
 
 /**
  * 原型模式：对象的创建模式,有简单形式和登记形式：

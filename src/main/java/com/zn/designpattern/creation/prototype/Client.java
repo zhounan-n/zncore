@@ -1,4 +1,4 @@
-package com.zn.designpattern.structrue.prototype;
+package com.zn.designpattern.creation.prototype;
 
 /**
  * 如果需要创建原型对象数目较少且相对固定的话，可以用简单模式

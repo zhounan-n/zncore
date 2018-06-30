@@ -1,4 +1,4 @@
-package com.zn.designpattern.structrue.abstractfactory;
+package com.zn.designpattern.creation.abstractfactory;
 
 public interface MainBoard {
 
