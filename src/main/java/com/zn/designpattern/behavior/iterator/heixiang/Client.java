@@ -1,4 +1,4 @@
-package com.zn.designpattern.behavior.iterator;
+package com.zn.designpattern.behavior.iterator.heixiang;
 
 /**
  * 迭代子模式(又叫游标模式)：对象的行为模式，顺序的访问聚集中的元素而不必暴露聚集的内部表象
