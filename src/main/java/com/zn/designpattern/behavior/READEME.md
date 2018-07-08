@@ -1,1 +1,12 @@
-行为模式
+行为模式:
+    commond:命令模式
+    interpreter:解释器模式
+    iterator:迭代模式
+    observer:观察者模式
+    responsesibilitychain:责任链模式
+    statepattern:状态模式
+    strategypattern:策略模式
+    templatemethod:模板方法模式
+    visitor:访问者模式
+    中介者模式
+    备忘录模式
