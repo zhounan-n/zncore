@@ -1,4 +1,4 @@
-package com.zn.designpattern;
+package com.zn.designpattern.creation.singleton;
 
 /**
  * 单例模式懒汉模式(调用的时候再去生成实例，空间换时间)

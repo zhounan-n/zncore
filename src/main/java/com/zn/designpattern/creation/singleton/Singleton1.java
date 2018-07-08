@@ -1,4 +1,4 @@
-package com.zn.designpattern;
+package com.zn.designpattern.creation.singleton;
 
 /**
  * 单例模式饿汉模式(时间换空间)
