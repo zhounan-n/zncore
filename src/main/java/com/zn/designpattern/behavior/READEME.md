@@ -8,5 +8,5 @@
     strategypattern:策略模式
     templatemethod:模板方法模式
     visitor:访问者模式
-    中介者模式
+    Mediator:中介者模式
     备忘录模式
