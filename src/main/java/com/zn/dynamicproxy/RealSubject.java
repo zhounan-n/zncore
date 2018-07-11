@@ -1,4 +1,4 @@
-package com.zn.DynamicProxy;
+package com.zn.dynamicproxy;
 
 /**
  * Created by zhoun on 2018/6/18.

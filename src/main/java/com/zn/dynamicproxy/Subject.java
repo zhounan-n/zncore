@@ -1,4 +1,4 @@
-package com.zn.DynamicProxy;
+package com.zn.dynamicproxy;
 
 public interface Subject {
 

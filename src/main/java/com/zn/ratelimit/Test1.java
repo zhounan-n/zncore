@@ -1,4 +1,4 @@
-package com.zn.RateLimit;
+package com.zn.ratelimit;
 
 import com.google.common.util.concurrent.RateLimiter;
 

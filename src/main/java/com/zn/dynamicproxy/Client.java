@@ -1,4 +1,4 @@
-package com.zn.DynamicProxy;
+package com.zn.dynamicproxy;
 
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Proxy;
