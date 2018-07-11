@@ -6,5 +6,8 @@ package com.zn.algorithm.sort;
  **/
 public class RadixSort {
 
+    public void sort(){
+
+    }
 
 }
