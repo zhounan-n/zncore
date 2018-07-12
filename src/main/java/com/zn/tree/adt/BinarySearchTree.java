@@ -2,6 +2,7 @@ package com.zn.tree.adt;
 
 /**
  * 二叉查找树
+ * 能够快速的定位给定的关键字，并且可以快速的插入和删除数据项
  * Created by zhoun on 2018/7/9.
  **/
 public class BinarySearchTree<AnyType extends Comparable<? super AnyType>> {
