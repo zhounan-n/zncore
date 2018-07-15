@@ -1,7 +1,8 @@
 package com.zn.web.core;
 
-import com.zn.constant.ConfigConstant;
-import com.zn.utils.PropsUtil;
+
+import com.zn.web.constant.ConfigConstant;
+import com.zn.web.utils.PropsUtil;
 
 import java.util.Map;
 import java.util.Properties;

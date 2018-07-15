@@ -1,11 +1,12 @@
 package com.zn.web.ioc;
 
-import com.zn.aop.annotation.Aspect;
-import com.zn.core.ClassHelper;
-import com.zn.core.fault.InitializationError;
-import com.zn.ioc.annotation.Bean;
-import com.zn.mvc.Action;
-import com.zn.tx.annotation.Service;
+
+import com.zn.web.annotation.Service;
+import com.zn.web.aop.annotation.Aspect;
+import com.zn.web.core.ClassHelper;
+import com.zn.web.core.fault.InitializationError;
+import com.zn.web.ioc.annotation.Bean;
+import com.zn.web.mvc.annotation.Action;
 
 import java.util.HashMap;
 import java.util.List;

@@ -1,10 +1,10 @@
 package com.zn.web.ioc;
 
-import com.zn.core.ClassHelper;
-import com.zn.core.fault.InitializationError;
-import com.zn.ioc.annotation.Impl;
-import com.zn.ioc.annotation.Inject;
-import com.zn.utils.ArrayUtil;
+import com.zn.web.core.ClassHelper;
+import com.zn.web.core.fault.InitializationError;
+import com.zn.web.ioc.annotation.Impl;
+import com.zn.web.ioc.annotation.Inject;
+import com.zn.web.utils.ArrayUtil;
 import org.apache.commons.collections4.CollectionUtils;
 
 import java.lang.reflect.Field;

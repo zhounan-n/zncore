@@ -1,10 +1,9 @@
 package com.zn.web;
-
-import com.zn.core.ClassScanner;
-import com.zn.core.ConfigHelper;
-import com.zn.core.impl.DefaultClassScanner;
-import com.zn.utils.ObjectUtil;
-import com.zn.utils.StringUtil;
+import com.zn.web.core.ClassScanner;
+import com.zn.web.core.ConfigHelper;
+import com.zn.web.core.impl.DefaultClassScanner;
+import com.zn.web.utils.ObjectUtil;
+import com.zn.web.utils.StringUtil;
 
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
