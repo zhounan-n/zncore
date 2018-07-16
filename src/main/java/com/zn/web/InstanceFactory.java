@@ -2,8 +2,16 @@ package com.zn.web;
 import com.zn.web.core.ClassScanner;
 import com.zn.web.core.ConfigHelper;
 import com.zn.web.core.impl.DefaultClassScanner;
+import com.zn.web.mvc.HandlerInvoker;
+import com.zn.web.mvc.HandlerMapping;
+import com.zn.web.mvc.ViewResolver;
+import com.zn.web.mvc.impl.DefaultHandlerInvoker;
+import com.zn.web.mvc.impl.DefaultHandlerMapping;
+import com.zn.web.mvc.impl.DefaultViewResolver;
 import com.zn.web.utils.ObjectUtil;
 import com.zn.web.utils.StringUtil;
+import org.springframework.web.servlet.HandlerExceptionResolver;
+import org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver;
 
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
@@ -13,46 +21,45 @@ import java.util.concurrent.ConcurrentHashMap;
  * Created by zhoun on 2018/7/14.
  **/
 public class InstanceFactory {
-
     /**
-     * 用于缓存对应的实例
+      * 用于缓存对应的实例
      */
     private static final Map<String, Object> cache = new ConcurrentHashMap<String, Object>();
 
     /**
-     * classScanner
+     * ClassScanner
      */
-    private static final String CLASS_SCANNER =  "com.zn.core.class_scanner";
+    private static final String CLASS_SCANNER = "smart.framework.custom.class_scanner";
 
     /**
      * DataSourceFactory
      */
-    private static final String DS_FACTORY = "com.zn.core.ds_factory";
+    private static final String DS_FACTORY = "smart.framework.custom.ds_factory";
 
     /**
      * DataAccessor
      */
-    private static final String DATA_ACCESSOR = "com.zn.core.data_accessor";
+    private static final String DATA_ACCESSOR = "smart.framework.custom.data_accessor";
 
     /**
      * HandlerMapping
      */
-    private static final String HANDLER_MAPPING = "com.zn.core.handler_mapping";
+    private static final String HANDLER_MAPPING = "smart.framework.custom.handler_mapping";
 
     /**
      * HandlerInvoker
      */
-    private static final String HANDLER_INVOKER = "com.zn.core.handler_invoker";
+    private static final String HANDLER_INVOKER = "smart.framework.custom.handler_invoker";
 
     /**
      * HandlerExceptionResolver
      */
-    private static final String HANDLER_EXCEPTION_RESOLVER = "com.zn.core.handler_exception_resolver";
+    private static final String HANDLER_EXCEPTION_RESOLVER = "smart.framework.custom.handler_exception_resolver";
 
     /**
      * ViewResolver
      */
-    private static final String VIEW_RESOLVER = "com.zn.core.view_resolver";
+    private static final String VIEW_RESOLVER = "smart.framework.custom.view_resolver";
 
     /**
      * 获取 ClassScanner
@@ -60,6 +67,49 @@ public class InstanceFactory {
     public static ClassScanner getClassScanner() {
         return getInstance(CLASS_SCANNER, DefaultClassScanner.class);
     }
+
+    /**
+     * 获取 DataSourceFactory
+     */
+   /* public static DataSourceFactory getDataSourceFactory() {
+        return getInstance(DS_FACTORY, DefaultDataSourceFactory.class);
+    }*/
+
+    /**
+     * 获取 DataAccessor
+     */
+    /*public static DataAccessor getDataAccessor() {
+        return getInstance(DATA_ACCESSOR, DefaultDataAccessor.class);
+    }*/
+
+    /**
+     * 获取 HandlerMapping
+     */
+    public static HandlerMapping getHandlerMapping() {
+        return getInstance(HANDLER_MAPPING, DefaultHandlerMapping.class);
+    }
+
+    /**
+     * 获取 HandlerInvoker
+     */
+    public static HandlerInvoker getHandlerInvoker() {
+        return getInstance(HANDLER_INVOKER, DefaultHandlerInvoker.class);
+    }
+
+    /**
+     * 获取 HandlerExceptionResolver
+     */
+    public static HandlerExceptionResolver getHandlerExceptionResolver() {
+        return getInstance(HANDLER_EXCEPTION_RESOLVER, DefaultHandlerExceptionResolver.class);
+    }
+
+    /**
+     * 获取 ViewResolver
+     */
+    public static ViewResolver getViewResolver() {
+        return getInstance(VIEW_RESOLVER, DefaultViewResolver.class);
+    }
+
 
     @SuppressWarnings("unchecked")
     public static <T> T getInstance(String cacheKey, Class<T> defaultImplClass) {
