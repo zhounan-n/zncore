@@ -4,6 +4,7 @@ import com.zn.web.InstanceFactory;
 import com.zn.web.ioc.BeanHelper;
 import com.zn.web.mvc.Handler;
 import com.zn.web.mvc.HandlerInvoker;
+import com.zn.web.mvc.UploadHelper;
 import com.zn.web.mvc.ViewResolver;
 import com.zn.web.mvc.bean.Params;
 import com.zn.web.utils.CastUtil;
@@ -13,6 +14,7 @@ import com.zn.web.utils.WebUtil;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.List;
