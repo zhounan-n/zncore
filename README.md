@@ -1,5 +1,5 @@
 # zncore
-java知识点累积(查漏补缺,以前的一些笔记由于没有好好保存都丢了,后续将一些代码中的笔记独立出来)
+java知识点、代码沉淀累积(包括一些核心知识点和demo，查漏补缺，欢迎提建议或指正。)
 
 package:
 
@@ -25,8 +25,8 @@ package:
     --
     book:书籍
     --
-    web:java实现的IOC实例(此部分代码参考从零开始写web框架)
+    web:java实现的IOC实例(此部分代码参考《架构探险从零开始写web框架》)
     --
-    fastdfs:上传案例
+    fastdfs:上传案例demo(参考开源项目FastDFS)
 
 
