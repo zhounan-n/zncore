@@ -5,7 +5,6 @@ import com.zn.web.InstanceFactory;
 import com.zn.web.utils.WebUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.web.servlet.HandlerExceptionResolver;
 
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletContext;
@@ -26,7 +25,7 @@ public class DispatcherServlet extends HttpServlet {
     private static final Logger logger = LoggerFactory.getLogger(DispatcherServlet.class);
     private HandlerMapping handlerMapping = InstanceFactory.getHandlerMapping();
     private HandlerInvoker handlerInvoker = InstanceFactory.getHandlerInvoker();
-    private HandlerExceptionResolver handlerExceptionResolver = InstanceFactory.getHandlerExceptionResolver();
+    private com.zn.web.mvc.HandlerExceptionResolver handlerExceptionResolver = InstanceFactory.getHandlerExceptionResolver();
 
 
     @Override
@@ -54,7 +53,18 @@ public class DispatcherServlet extends HttpServlet {
             return;
         }
         //初始化DataContext
-        
+        DataContext.init(req, resp);
+        try {
+            //调用handler
+            handlerInvoker.invokeHandler(req, resp, handler);
+        } catch (Exception e) {
+            //处理异常
+            handlerExceptionResolver.resolveHandlerException(req, resp, e);
+        } finally {
+            //销毁
+            DataContext.destroy();
+        }
+
 
     }
 
