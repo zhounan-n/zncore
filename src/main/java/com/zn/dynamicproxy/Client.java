@@ -4,6 +4,7 @@ import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Proxy;
 
 /**
+ * jdk动态代理
  * Created by zhoun on 2018/6/18.
  **/
 public class Client {
