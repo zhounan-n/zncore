@@ -68,4 +68,11 @@ public class BeanHelper {
     }
 
 
+    /**
+     * 设置 Bean 实例
+     */
+    public static void setBean(Class<?> cls, Object obj) {
+        beanMap.put(cls, obj);
+    }
+
 }

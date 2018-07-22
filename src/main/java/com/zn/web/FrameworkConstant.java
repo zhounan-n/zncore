@@ -12,7 +12,7 @@ public interface FrameworkConstant {
     String CONFIG_PROPS = "smart.properties";
     String SQL_PROPS = "smart-sql.properties";
 
-    String PLUGIN_PACKAGE = "org.smart4j.plugin";
+    String PLUGIN_PACKAGE = "com.zn.web.plugin";
 
     String JSP_PATH = ConfigHelper.getString("smart.framework.app.jsp_path", "/WEB-INF/jsp/");
     String WWW_PATH = ConfigHelper.getString("smart.framework.app.www_path", "/www/");
