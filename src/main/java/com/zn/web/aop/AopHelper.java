@@ -2,6 +2,7 @@ package com.zn.web.aop;
 
 import com.zn.web.FrameworkConstant;
 import com.zn.web.InstanceFactory;
+import com.zn.web.annotation.Service;
 import com.zn.web.aop.annotation.Aspect;
 import com.zn.web.aop.annotation.AspectOrder;
 import com.zn.web.aop.proxy.Proxy;
@@ -11,13 +12,13 @@ import com.zn.web.core.ClassScanner;
 import com.zn.web.ioc.BeanHelper;
 import com.zn.web.plugin.Plugin;
 import com.zn.web.plugin.PluginProxy;
+import com.zn.web.utils.ClassUtil;
 import org.apache.commons.collections4.CollectionUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.junit.runners.model.InitializationError;
 
-import java.util.Collections;
-import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Map;
+import java.lang.annotation.Annotation;
+import java.util.*;
 
 import static javafx.scene.input.KeyCode.T;
 
@@ -81,7 +82,7 @@ public class AopHelper {
         }
     }
 
-    private static void addAspectProxy(Map<Class<?>, List<Class<?>>> proxyMap) {
+    private static void addAspectProxy(Map<Class<?>, List<Class<?>>> proxyMap) throws Exception {
         //获取切面类
         List<Class<?>> aspectProxyClasslist = ClassHelper.getClassListBySuper(AspectProxy.class);
         //添加插件包下所有的切面类
@@ -105,11 +106,39 @@ public class AopHelper {
 
     private static List<Class<?>> createTargetClassList(Aspect aspect) throws Exception {
         //TODO
-        return null;
+        List<Class<?>> targetClasslist = new ArrayList<>();
+        //获取Aspect注解相关的属性
+        String pkg = aspect.pkg();
+        String cls = aspect.cls();
+        Class<? extends Annotation> annotation = aspect.annottion();
+        //若包名不为空，则需要进一步判断类名是否为空
+        if (StringUtils.isNoneEmpty(pkg)) {
+            if (StringUtils.isNoneEmpty(cls)) {
+                //若类名为空，则仅添加该类
+                targetClasslist.add(ClassUtil.loadClass(pkg + "." + cls, false));
+            } else {
+                //若注解不为空且不是Aspect注解，则添加指定包名下带有该注解的所有类
+                if (annotation != null && !annotation.equals(Aspect.class)) {
+                    targetClasslist.addAll(classScanner.getClassListByAnnotation(pkg, annotation));
+                } else {
+                    //否则添加该包名下所有类
+                    targetClasslist.addAll(classScanner.getClassist(pkg));
+                }
+            }
+        } else {
+            //若注解不为空且Aspect注解，则添加该应用包下带有该注解的所有类
+            if (annotation != null && !annotation.equals(Aspect.class)) {
+                targetClasslist.addAll(ClassHelper.getClassByAnnotation(annotation));
+            }
+        }
+        return targetClasslist;
     }
 
     private static void addTranscationProxy(Map<Class<?>, List<Class<?>>> proxyMap) {
-
+        //使用tRanscationProxy代理所有service类
+        List<Class<?>> serviceClasslist=ClassHelper.getClassByAnnotation(Service.class);
+        //TODO
+        //proxyMap.put(Transcationp)
     }
 
     private static void sortAspectProxyClasslist(List<Class<?>> proxyClassList) {
