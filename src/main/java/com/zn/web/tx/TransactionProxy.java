@@ -2,6 +2,7 @@ package com.zn.web.tx;
 
 import com.zn.web.aop.proxy.Proxy;
 import com.zn.web.aop.proxy.ProxyChain;
+import com.zn.web.dao.DatabaseHelper;
 import com.zn.web.tx.annotation.Transcation;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -39,7 +40,8 @@ public class TransactionProxy implements Proxy {
             flagContainer.set(true);
             try {
                 //开启事务
-                
+                DatabaseHelper.beginTransaction();
+
             }catch (Exception e){
 
             }finally {

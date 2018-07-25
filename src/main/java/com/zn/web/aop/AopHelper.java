@@ -12,6 +12,7 @@ import com.zn.web.core.ClassScanner;
 import com.zn.web.ioc.BeanHelper;
 import com.zn.web.plugin.Plugin;
 import com.zn.web.plugin.PluginProxy;
+import com.zn.web.tx.TransactionProxy;
 import com.zn.web.utils.ClassUtil;
 import org.apache.commons.collections4.CollectionUtils;
 import org.apache.commons.lang3.StringUtils;
@@ -136,9 +137,8 @@ public class AopHelper {
 
     private static void addTranscationProxy(Map<Class<?>, List<Class<?>>> proxyMap) {
         //使用tRanscationProxy代理所有service类
-        List<Class<?>> serviceClasslist=ClassHelper.getClassByAnnotation(Service.class);
-        //TODO
-        //proxyMap.put(Transcationp)
+        List<Class<?>> serviceClasslist = ClassHelper.getClassByAnnotation(Service.class);
+        proxyMap.put(TransactionProxy.class, serviceClasslist);
     }
 
     private static void sortAspectProxyClasslist(List<Class<?>> proxyClassList) {
@@ -159,7 +159,32 @@ public class AopHelper {
         });
     }
 
+
     private static int getOrderValue(Class<?> aspect) {
         return aspect.getAnnotation(AspectOrder.class) != null ? aspect.getAnnotation(AspectOrder.class).value() : 0;
+    }
+
+    private static Map<Class<?>, List<Proxy>> createTargetMap(Map<Class<?>, List<Class<?>>> proxyMap) throws Exception {
+        Map<Class<?>, List<Proxy>> targetMap = new HashMap<>();
+        //遍历proxyMap
+        for (Map.Entry<Class<?>, List<Class<?>>> proxyEntry : proxyMap.entrySet()) {
+            //分别获取map中的key value
+            Class<?> proxyClass = proxyEntry.getKey();
+            List<Class<?>> targetClassList = proxyEntry.getValue();
+            //遍历目标类列表
+            for (Class<?> targetClass : targetClassList) {
+                //创建代理类(切面类)实例
+                Proxy baseAspect = (Proxy) proxyClass.newInstance();
+                //初始化targetMap
+                if (targetMap.containsKey(targetClass)) {
+                    targetMap.get(targetClass).add(baseAspect);
+                } else {
+                    List<Proxy> baseAspectList = new ArrayList<Proxy>();
+                    baseAspectList.add(baseAspect);
+                    targetMap.put(targetClass, baseAspectList);
+                }
+            }
+        }
+        return targetMap;
     }
 }

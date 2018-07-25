@@ -2,6 +2,10 @@ package com.zn.web;
 import com.zn.web.core.ClassScanner;
 import com.zn.web.core.ConfigHelper;
 import com.zn.web.core.impl.DefaultClassScanner;
+import com.zn.web.dao.DataAccessor;
+import com.zn.web.dao.impl.DefaultDataAccessor;
+import com.zn.web.ds.DataSourceFactory;
+import com.zn.web.ds.impl.DefaultDatasourceFactory;
 import com.zn.web.mvc.HandlerExceptionResolver;
 import com.zn.web.mvc.HandlerInvoker;
 import com.zn.web.mvc.HandlerMapping;
@@ -71,16 +75,16 @@ public class InstanceFactory {
     /**
      * 获取 DataSourceFactory
      */
-   /* public static DataSourceFactory getDataSourceFactory() {
-        return getInstance(DS_FACTORY, DefaultDataSourceFactory.class);
-    }*/
+    public static DataSourceFactory getDataSourceFactory() {
+        return getInstance(DS_FACTORY, DefaultDatasourceFactory.class);
+    }
 
     /**
      * 获取 DataAccessor
      */
-    /*public static DataAccessor getDataAccessor() {
+    public static DataAccessor getDataAccessor() {
         return getInstance(DATA_ACCESSOR, DefaultDataAccessor.class);
-    }*/
+    }
 
     /**
      * 获取 HandlerMapping
