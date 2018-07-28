@@ -16,12 +16,10 @@ import com.zn.web.tx.TransactionProxy;
 import com.zn.web.utils.ClassUtil;
 import org.apache.commons.collections4.CollectionUtils;
 import org.apache.commons.lang3.StringUtils;
-import org.junit.runners.model.InitializationError;
 
 import java.lang.annotation.Annotation;
 import java.util.*;
 
-import static javafx.scene.input.KeyCode.T;
 
 /**
  * 初始化aop框架

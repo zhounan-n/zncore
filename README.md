@@ -25,8 +25,8 @@ package:
     --
     book:书籍
     --
-    web:java实现的IOC实例(此部分代码参考《架构探险从零开始写web框架》)
+    web:java实现的IOC实例
     --
-    fastdfs:上传案例demo(参考开源项目FastDFS)
+    fastdfs:上传案例demo
 
 
