@@ -2,11 +2,11 @@ package com.zn.web.dao;
 
 import com.zn.web.InstanceFactory;
 import com.zn.web.core.ConfigHelper;
+import com.zn.web.ds.DataSourceFactory;
 import com.zn.web.utils.ClassUtil;
 import org.apache.commons.io.FileUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.jdbc.datasource.embedded.DataSourceFactory;
 
 import javax.sql.DataSource;
 import java.io.File;
