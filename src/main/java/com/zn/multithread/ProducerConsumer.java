@@ -4,6 +4,7 @@ import java.util.concurrent.*;
 
 /**
  * 模拟生产消费者模型
+ * 阻塞队列实现
  * Created by zhoun on 2019/3/3.
  **/
 public class ProducerConsumer {
